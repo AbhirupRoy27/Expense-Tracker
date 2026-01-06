@@ -12,6 +12,21 @@ app.get('/', (req, res) => {
   })
 })
 
+app.use((err, req, res, next) => {
+  res.status(500).json({
+    stats: false,
+    message: 'Server Error: Something went wrong',
+    error: err,
+  })
+})
+
+app.use((req, res) => {
+  res.status(404).json({
+    stats: false,
+    message: 'Route not found',
+  })
+})
+
 app.listen(process.env.PORT || 3000, () => {
   console.log(`Port(SERVER) at http://localhost:${process.env.PORT || 3000}`)
 })
