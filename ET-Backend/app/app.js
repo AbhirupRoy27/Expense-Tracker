@@ -1,19 +1,22 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import inputRouter from '../routes/inputRoute.js'
+import connectDB from '../controllers/DB/connectDB.js'
 
 const app = express()
 app.use(express.json())
 dotenv.config()
+const res = await connectDB()
+if (res) {
+  app.use('/api', inputRouter)
 
-app.use('/api', inputRouter)
-
-app.get('/', (req, res) => {
-  res.json({
-    stats: true,
-    message: 'The API is working',
+  app.get('/', (req, res) => {
+    res.json({
+      stats: true,
+      message: 'The API is working',
+    })
   })
-})
+}
 
 app.use((err, req, res, next) => {
   res.status(500).json({
