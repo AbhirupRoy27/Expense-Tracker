@@ -1,9 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
+import CategorySelector from './CategorySelector'
+import { useDispatch } from 'react-redux'
+import { handleAmount } from '../../redux/features/inputSlice'
 
 function InputForm() {
+  const [inputs, setInputs] = useState({
+    amount: 0,
+    category: 'Others',
+    message: '',
+  })
+  const dispatch = useDispatch()
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(e)
+    dispatch(handleAmount(inputs))
+    setInputs({
+      amount: 0,
+      category: 'Others',
+      message: '',
+    })
+  }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+
+    setInputs((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
   }
 
   return (
@@ -15,19 +39,29 @@ function InputForm() {
       <input
         type="number"
         placeholder="Amount"
+        value={inputs.amount}
+        name="amount"
         className="focus:outline-0 bg-white/10 focus:bg-white/20 py-4 px-2 w-full"
+        onChange={handleChange}
       />
+      <CategorySelector value={inputs.category} setInputs={setInputs} />
       <label>Message (optional)</label>
       <input
         type="text"
         placeholder="Amount"
+        value={inputs.message}
+        name="message"
         className="focus:outline-0 bg-white/10 focus:bg-white/20 py-4 px-2 w-full"
+        onChange={handleChange}
       />
       <button
         type="submit"
-        className="py-2 px-10 bg-blue-500 text-2xl mt-3 active:scale-95 transition-all duration-300"
+        className={`py-3 px-10 ${
+          inputs.amount <= 0 ? 'bg-gray-500' : 'bg-blue-500'
+        } text-xl mt-3 active:scale-95 transition-all duration-300 tracking-wider font-semibold`}
+        disabled={inputs.amount <= 0}
       >
-        Save
+        SAVE
       </button>
     </form>
   )
