@@ -48,7 +48,7 @@ function InputForm() {
       <label>Message (optional)</label>
       <input
         type="text"
-        placeholder="Amount"
+        placeholder="Grocery, Milk, Pan"
         value={inputs.message}
         name="message"
         className="focus:outline-0 bg-white/10 focus:bg-white/20 py-4 px-2 w-full"
