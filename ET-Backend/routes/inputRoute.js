@@ -1,21 +1,10 @@
 import { Router } from 'express'
 import addMoneyBodyValidator from '../middleware/addMoneyBodyValidator.js'
+import addMoneyController from '../controllers/add-money/addMoneyController.js'
 
 const inputRouter = Router()
 
-inputRouter.post('/add-money', addMoneyBodyValidator, (req, res, next) => {
-  try {
-    const { amount } = req.body
-
-    res.json({
-      stats: true,
-      message: 'The API is working: can add money',
-      amount,
-    })
-  } catch (error) {
-    next(error)
-  }
-})
+inputRouter.post('/add-money', addMoneyBodyValidator, addMoneyController)
 
 inputRouter.get('/get-all-detail', (req, res) => {
   res.json({
