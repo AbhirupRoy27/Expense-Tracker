@@ -1,9 +1,12 @@
 import express from 'express'
 import dotenv from 'dotenv'
+import inputRouter from '../routes/inputRoute.js'
 
 const app = express()
 app.use(express.json())
 dotenv.config()
+
+app.use('/api', inputRouter)
 
 app.get('/', (req, res) => {
   res.json({
