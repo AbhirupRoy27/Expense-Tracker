@@ -1,8 +1,9 @@
 import { Router } from 'express'
+import addMoneyBodyValidator from '../middleware/addMoneyBodyValidator.js'
 
 const inputRouter = Router()
 
-inputRouter.post('/add-money', (req, res, next) => {
+inputRouter.post('/add-money', addMoneyBodyValidator, (req, res, next) => {
   try {
     const { amount } = req.body
 
