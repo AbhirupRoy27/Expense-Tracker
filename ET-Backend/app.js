@@ -1,7 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
-import inputRouter from '../routes/inputRoute.js'
-import connectDB from '../controllers/DB/connectDB.js'
+import connectDB from './controllers/DB/connectDB.js'
+import inputRouter from './routes/inputRoute.js'
 
 const app = express()
 app.use(express.json())
