@@ -9,7 +9,9 @@ const inputSlice = createSlice({
   },
   reducers: {
     handleAmount: (state, action) => {
-      state.amount = action.payload
+      state.amount += Number(action.payload.amount)
+      state.category = action.payload.category
+      state.message = action.payload.message
     },
 
     clearInputs: (state) => {
