@@ -3,13 +3,13 @@ import AmountCard from '../components/AmountCard'
 import InputForm from '../components/InputForm'
 import TopBar from '../components/TopBar'
 import { Wallet } from 'lucide-react'
-import { useDispatch } from 'react-redux'
-import { resetAmount } from '../../redux/features/inputSlice'
+// import { useDispatch } from 'react-redux'
+// import { resetAmount } from '../../redux/features/inputSlice'
 
 function AppLayout() {
   const navigate = useNavigate()
 
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
   return (
     <div className=" bg-gray-950 h-screen text-white">
@@ -31,8 +31,9 @@ function AppLayout() {
         <button
           className="bg-emerald-600 text-black py-3 px-4 flex gap-2 font-semibold"
           onClick={() => {
-            localStorage.clear('total')
-            dispatch(resetAmount())
+            alert('not functionable')
+            // localStorage.clear('total')
+            // dispatch(resetAmount())
           }}
         >
           <Wallet /> Clear
