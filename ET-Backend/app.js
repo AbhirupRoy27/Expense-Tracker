@@ -1,11 +1,13 @@
 import express from 'express'
 import dotenv from 'dotenv'
+import cors from 'cors'
 import connectDB from './controllers/DB/connectDB.js'
 import inputRouter from './routes/inputRoute.js'
 
 const app = express()
 app.use(express.json())
 dotenv.config()
+app.use(cors())
 const res = await connectDB()
 if (res) {
   app.use('/api', inputRouter)
