@@ -2,9 +2,15 @@ import { MoneyModel } from '../../model/userDataModel.js'
 
 const addMoneyController = async (req, res, next) => {
   try {
-    const { amount } = req.body
+    const { amount, category, message } = req.body
 
-    const data = await MoneyModel.create({ amount })
+    const insertData = {
+      amount,
+      category: category || 'Others',
+      message: message || '',
+    }
+
+    const data = await MoneyModel.create(insertData)
 
     if (!data) {
       return res.json({
