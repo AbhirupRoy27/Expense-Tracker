@@ -1,27 +1,39 @@
-import { ArrowLeft } from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useContext } from 'react'
+import { transactionContext } from '../context/TranasactionContext'
+import SpendLayout from './layout/SpendLayout'
+import { ChartColumnBig } from 'lucide-react'
 
 function SpendsPage() {
-  const navigate = useNavigate()
+  const { data } = useContext(transactionContext)
+  if (data.length < 1)
+    return (
+      <div>
+        <SpendLayout />
+        <h1 className="text-center mt-4 font-mono tracking-widest uppercase flex justify-center items-center gap-3 text-2xl">
+          No Data yet <ChartColumnBig size={50} color="blue" />
+        </h1>
+      </div>
+    )
 
-  const { amount } = useSelector((s) => s.input)
+  console.log(data)
 
   return (
-    <div className="py-3">
-      <button
-        onClick={() => navigate('/')}
-        className="flex items-center gap-2 py-3 mb-2 text-xl font-bold tracking-wider"
-      >
-        <ArrowLeft /> Go back
-      </button>
-      <div className="py-4 px-4 bg-white/30 mb-3 flex justify-between items-center">
-        <h2 className="text-lg tracking-wider font-mono">This Month Total:</h2>
-        <span className="text-2xl"> ₹{amount}.00</span>
+    <div className="py-3 min-w-88.5">
+      <SpendLayout />
+      <div className="flex flex-col gap-2 mt-2">
+        {data.map((item) => (
+          <div
+            key={item._id}
+            className="bg-white/10 px-4 flex justify-between items-center"
+          >
+            <p className="text-white/60">
+              <b>Category:</b> {data.category || 'Others'}
+            </p>
+
+            <h1 className="py-3">₹{item.amount}</h1>
+          </div>
+        ))}
       </div>
-      <h4 className="font-extralight tracking-widest">
-        This is the all spend page
-      </h4>
     </div>
   )
 }
