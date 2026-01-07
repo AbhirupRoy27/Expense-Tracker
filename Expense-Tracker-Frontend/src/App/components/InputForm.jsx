@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import CategorySelector from './CategorySelector'
 import { useDispatch } from 'react-redux'
 import { handleAmount } from '../../redux/features/inputSlice'
+import updateData from '../utils/updateData'
 
 function InputForm() {
   const [inputs, setInputs] = useState({
@@ -14,6 +15,7 @@ function InputForm() {
   const handleSubmit = (e) => {
     e.preventDefault()
     dispatch(handleAmount(inputs))
+    updateData(inputs)
     setInputs({
       amount: 0,
       category: 'Others',
