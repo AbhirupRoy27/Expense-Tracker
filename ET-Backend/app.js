@@ -4,27 +4,31 @@ import cors from 'cors'
 import connectDB from './controllers/DB/connectDB.js'
 import inputRouter from './routes/inputRoute.js'
 
-const app = express()
-app.use(express.json())
 dotenv.config()
-app.use(cors())
-const res = await connectDB()
-if (res) {
-  app.use('/api', inputRouter)
 
-  app.get('/', (req, res) => {
-    res.json({
-      stats: true,
-      message: 'The API is working',
-    })
+const app = express()
+const PORT = process.env.PORT || 3000
+
+app.use(express.json())
+app.use(cors())
+
+// Routes
+app.use('/api', inputRouter)
+
+app.get('/', (req, res) => {
+  res.json({
+    stats: true,
+    message: 'The API is working',
   })
-}
+})
 
 app.use((err, req, res, next) => {
+  console.error(err) // Log the error for the developer
   res.status(500).json({
     stats: false,
     message: 'Server Error: Something went wrong',
-    error: err,
+    // Only show detailed error in development
+    error: process.env.NODE_ENV === 'development' ? err.message : undefined,
   })
 })
 
@@ -35,8 +39,15 @@ app.use((req, res) => {
   })
 })
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`Port(SERVER) at http://localhost:${process.env.PORT || 3000}`)
-})
+// Connect to DB and then start server
+const dbConnected = await connectDB()
+
+if (dbConnected) {
+  app.listen(PORT, () => {
+    console.log(`Port(SERVER) at http://localhost:${PORT}`)
+  })
+} else {
+  console.error('Database connection failed. Server not started.')
+}
 
 export default app

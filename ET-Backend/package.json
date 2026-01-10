@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./app.js",
-    "dev": "npx nodemon ./app.js"
+    "dev": "nodemon ./app.js"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +16,8 @@
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "mongoose": "^9.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }
