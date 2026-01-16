@@ -51,7 +51,7 @@ export default AmountCard
 const getTotal = async (dispatch) => {
   try {
     const res = await axios('http://localhost:3001/api/get-total')
-    const totalAmount = res.data?.result[0].totalAmount
+    const totalAmount = res.data?.result[0]?.totalAmount || 0
     dispatch(updateTotal(totalAmount))
   } catch (error) {
     console.warn(error)

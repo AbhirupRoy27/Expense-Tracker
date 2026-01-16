@@ -25,7 +25,6 @@ function InputForm() {
 
   const handleChange = (e) => {
     const { name, value } = e.target
-
     setInputs((prev) => ({
       ...prev,
       [name]: value,
@@ -46,6 +45,18 @@ function InputForm() {
         className="focus:outline-0 bg-white/10 focus:bg-white/20 py-4 px-2 w-full"
         onChange={handleChange}
       />
+      <div className="flex gap-3">
+        {[50, 100, 200, 500].map((am) => (
+          <button
+            key={am}
+            type="button"
+            onClick={() => setInputs({ ...inputs, amount: inputs.amount + am })}
+            className="bg-green-500/30 border-green-200 border-2 border-dashed rounded-xl px-4 py-2"
+          >
+            +{am}
+          </button>
+        ))}
+      </div>
       <CategorySelector value={inputs.category} setInputs={setInputs} />
       <label>Message (optional)</label>
       <input
