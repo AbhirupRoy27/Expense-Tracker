@@ -10,7 +10,7 @@ function SpendsPage() {
     return (
       <div>
         <SpendLayout />
-        <h1 className="text-center mt-6 font-mono tracking-widest uppercase flex justify-center items-center gap-3 text-2xl">
+        <h1 className="text-center mt-6 font-mono tracking-widest uppercase flex justify-center items-center gap-3 text-2xl min-h-[60vh]">
           No Data yet <ChartColumnBig size={50} color="blue" />
         </h1>
         <PageChange disable={true} />
@@ -22,7 +22,7 @@ function SpendsPage() {
   return (
     <div className="py-3 min-w-88.5">
       <SpendLayout />
-      <div className="flex flex-col gap-2 mt-2">
+      <div className="flex flex-col gap-2 mt-2 min-h-[60vh]">
         {data.map((item) => (
           <div
             key={item._id}

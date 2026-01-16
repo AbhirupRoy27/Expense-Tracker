@@ -9,7 +9,7 @@ function AppLayout() {
   // const dispatch = useDispatch()
 
   return (
-    <div className="bg-gray-950 h-screen text-white min-w-95">
+    <div className="bg-gray-950 text-white min-w-95">
       <TopBar />
       <Outlet />
     </div>

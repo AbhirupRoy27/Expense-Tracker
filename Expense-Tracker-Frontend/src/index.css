@@ -4,6 +4,7 @@ html,
 body {
   background-color: rgb(3 7 18);
   min-width: 400px;
+  height: 100vh;
 }
 
 .no-scrollbar::-webkit-scrollbar {
