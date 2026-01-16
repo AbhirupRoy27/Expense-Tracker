@@ -50,7 +50,12 @@ function InputForm() {
           <button
             key={am}
             type="button"
-            onClick={() => setInputs({ ...inputs, amount: inputs.amount + am })}
+            onClick={() =>
+              setInputs({
+                ...inputs,
+                amount: Number(inputs.amount) + am,
+              })
+            }
             className="bg-green-500/30 border-green-200 border-2 border-dashed rounded-xl px-4 py-2"
           >
             +{am}
