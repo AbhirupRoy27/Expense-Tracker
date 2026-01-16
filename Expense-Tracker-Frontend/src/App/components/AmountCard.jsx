@@ -1,8 +1,16 @@
 import { Calendar } from 'lucide-react'
-import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import axios from 'axios'
+import { updateTotal } from '../../redux/features/inputSlice'
 
 function AmountCard() {
   const { amount } = useSelector((s) => s.input)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    getTotal(dispatch)
+  }, [dispatch])
 
   const months = [
     'Jan',
@@ -39,3 +47,13 @@ function AmountCard() {
 }
 
 export default AmountCard
+
+const getTotal = async (dispatch) => {
+  try {
+    const res = await axios('http://localhost:3001/api/get-total')
+    const totalAmount = res.data?.result[0].totalAmount
+    dispatch(updateTotal(totalAmount))
+  } catch (error) {
+    console.warn(error)
+  }
+}
