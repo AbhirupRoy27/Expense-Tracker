@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { transactionContext } from '../context/TranasactionContext'
 import SpendLayout from './layout/SpendLayout'
 import { ChartColumnBig } from 'lucide-react'
+import PageChange from '../App/components/PageChange'
 
 function SpendsPage() {
   const { data } = useContext(transactionContext)
@@ -12,6 +13,7 @@ function SpendsPage() {
         <h1 className="text-center mt-6 font-mono tracking-widest uppercase flex justify-center items-center gap-3 text-2xl">
           No Data yet <ChartColumnBig size={50} color="blue" />
         </h1>
+        <PageChange disable={true} />
       </div>
     )
 
@@ -40,6 +42,7 @@ function SpendsPage() {
           </div>
         ))}
       </div>
+      <PageChange disable={false} />
     </div>
   )
 }
