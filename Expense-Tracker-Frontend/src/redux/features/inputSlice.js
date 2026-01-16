@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const inputSlice = createSlice({
   name: 'inputs',
   initialState: {
-    amount: Number(localStorage.getItem('total')) || 0,
+    amount: 0,
     category: 'Others',
     message: '',
   },
@@ -12,7 +12,9 @@ const inputSlice = createSlice({
       state.amount += Number(action.payload.amount)
       state.category = action.payload.category
       state.message = action.payload.message
-      localStorage.setItem('total', Number(state.amount))
+    },
+    updateTotal: (state, { payload }) => {
+      state.amount = payload
     },
     resetAmount: (state) => {
       state.amount = 0
@@ -25,5 +27,6 @@ const inputSlice = createSlice({
   },
 })
 
-export const { handleAmount, clearInputs, resetAmount } = inputSlice.actions
+export const { handleAmount, clearInputs, resetAmount, updateTotal } =
+  inputSlice.actions
 export default inputSlice.reducer
