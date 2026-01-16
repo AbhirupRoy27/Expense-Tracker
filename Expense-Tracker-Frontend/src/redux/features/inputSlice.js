@@ -6,6 +6,7 @@ const inputSlice = createSlice({
     amount: 0,
     category: 'Others',
     message: '',
+    status: '',
   },
   reducers: {
     handleAmount: (state, action) => {

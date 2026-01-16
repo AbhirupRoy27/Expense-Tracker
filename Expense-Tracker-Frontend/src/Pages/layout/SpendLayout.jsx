@@ -1,10 +1,13 @@
 import { ArrowLeft } from 'lucide-react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { getTotal } from '../../App/utils/getTotal'
 
 function SpendLayout() {
   const navigate = useNavigate()
   const { amount } = useSelector((s) => s.input)
+
+  const dispatch = useDispatch()
 
   return (
     <>
@@ -22,8 +25,11 @@ function SpendLayout() {
         <h4 className="font-extralight tracking-widest text-lg sm:text-2xl">
           This is the all spend page
         </h4>
-        <button className="bg-cyan-500 text-gray-900 py-3 px-1 sm:px-4 flex gap-2 font-semibold rounded-lg min-w-25 justify-center items-center">
-          Load Next
+        <button
+          className="bg-cyan-500 text-gray-900 py-3 px-1 sm:px-4 flex gap-2 font-semibold rounded-lg min-w-25 justify-center items-center"
+          onClick={() => getTotal(dispatch)}
+        >
+          Load Total
         </button>
       </div>
     </>

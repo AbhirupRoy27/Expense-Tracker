@@ -15,7 +15,7 @@ function SpendsPage() {
       </div>
     )
 
-  console.log(data)
+  // console.log(data)
 
   return (
     <div className="py-3 min-w-88.5">
@@ -26,11 +26,17 @@ function SpendsPage() {
             key={item._id}
             className="bg-white/10 px-4 flex justify-between items-center"
           >
-            <p className="text-white/60">
-              <b>Category:</b> {item.category || 'Others'}
-            </p>
+            <div className="py-3 w-4/5 overflow-scroll no-scrollbar">
+              <p className="text-white/60 mb-1">
+                <b>Category:</b> {item.category || 'Others'}
+              </p>
+              <p className="text-white/60 flex flex-wrap text-wrap">
+                <b className="text-white/80 mr-1 text-lg">Message:</b>
+                {item.message.slice(0, 40) + '...' || '...'}
+              </p>
+            </div>
 
-            <h1 className="py-3">₹{item.amount}</h1>
+            <h1 className="py-3 text-xl">₹{item.amount}.00</h1>
           </div>
         ))}
       </div>
