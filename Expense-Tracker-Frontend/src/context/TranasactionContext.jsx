@@ -21,7 +21,10 @@ export default TranasactionContextProvider
 
 const getTransactions = async (setData) => {
   try {
-    const res = await axios.get('http://localhost:3001/api/get-all-detail')
+    const res = await axios.get(
+      // 'http://localhost:3001/api/get-all-detail'
+      'https://expense-tracker-gray-one-54.vercel.app/api/get-all-detail'
+    )
     if (!res) return false
 
     return setData(res.data.data)

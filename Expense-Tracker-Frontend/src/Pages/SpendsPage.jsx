@@ -27,7 +27,7 @@ function SpendsPage() {
             className="bg-white/10 px-4 flex justify-between items-center"
           >
             <p className="text-white/60">
-              <b>Category:</b> {data.category || 'Others'}
+              <b>Category:</b> {item.category || 'Others'}
             </p>
 
             <h1 className="py-3">₹{item.amount}</h1>

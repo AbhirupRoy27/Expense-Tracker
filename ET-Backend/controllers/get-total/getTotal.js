@@ -3,7 +3,7 @@ import { MoneyModel } from '../../model/userDataModel.js'
 const getTotal = async (req, res) => {
   try {
     const date = {
-      month: 11,
+      month: new Date().getMonth(),
       year: new Date().getFullYear(),
     }
     // console.log(String(date.month).split('T')[0])
