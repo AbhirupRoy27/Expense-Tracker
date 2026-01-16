@@ -21,16 +21,6 @@ function SpendForm() {
         >
           <Wallet /> See All Spends
         </button>
-        <button
-          className="bg-emerald-600 text-black py-3 px-4 flex gap-2 font-semibold"
-          onClick={() => {
-            alert('not functionable')
-            // localStorage.clear('total')
-            // dispatch(resetAmount())
-          }}
-        >
-          <Wallet /> Clear
-        </button>
       </div>
     </div>
   )
