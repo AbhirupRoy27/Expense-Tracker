@@ -9,7 +9,7 @@ function SpendsPage() {
     return (
       <div>
         <SpendLayout />
-        <h1 className="text-center mt-4 font-mono tracking-widest uppercase flex justify-center items-center gap-3 text-2xl">
+        <h1 className="text-center mt-6 font-mono tracking-widest uppercase flex justify-center items-center gap-3 text-2xl">
           No Data yet <ChartColumnBig size={50} color="blue" />
         </h1>
       </div>
