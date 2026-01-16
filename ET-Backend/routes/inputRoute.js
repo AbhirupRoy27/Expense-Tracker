@@ -3,9 +3,13 @@ import addMoneyBodyValidator from '../middleware/addMoneyBodyValidator.js'
 import addMoneyController from '../controllers/add-money/addMoneyController.js'
 import getTransactionController from '../controllers/get-transactions/getTransactionController.js'
 
+import getTotal from '../controllers/get-total/getTotal.js'
+
 const inputRouter = Router()
 
 inputRouter.post('/add-money', addMoneyBodyValidator, addMoneyController)
+
+inputRouter.get('/get-total', getTotal)
 
 inputRouter.get('/get-all-detail', getTransactionController)
 
