@@ -2,7 +2,7 @@ import React from 'react'
 
 function TopBar() {
   return (
-    <div className="flex justify-between pt-6 px-2 ">
+    <div className="flex justify-between pt-6 px-2 mb-6">
       <div className="flex items-center gap-2">
         <img
           src="https://res.cloudinary.com/dfuhnqbap/image/upload/v1767480373/ET_Logo_okcik3.png"
