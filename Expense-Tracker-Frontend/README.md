@@ -1,16 +1,49 @@
-# React + Vite
+# Expense Tracker Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend for a full-stack expense tracker application. It allows users to track their income and expenses, view a list of transactions, and see their total balance.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*   **Add Income and Expenses:** Easily add new transactions with a description, amount, and category.
+*   **Transaction History:** View a list of all your past transactions.
+*   **Total Balance:** See your total balance, income, and expenses at a glance.
+*   **Categorization:** (WIP) Categorize your expenses to better understand your spending habits.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*   **React:** A JavaScript library for building user interfaces.
+*   **Vite:** A fast build tool for modern web development.
+*   **React Router:** For handling routing within the application.
+*   **Redux Toolkit:** For state management.
+*   **Axios:** For making HTTP requests to the backend.
+*   **Lucide React:** For icons.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+*   npm
+    ```sh
+    npm install npm@latest -g
+    ```
+
+### Installation
+
+1.  Clone the repo
+    ```sh
+    git clone https://github.com/your_username/your_project_name.git
+    ```
+2.  Install NPM packages
+    ```sh
+    npm install
+    ```
+3.  Start the development server
+    ```sh
+    npm run dev
+    ```
+
+## Backend
+
+The backend for this project can be found in the `ET-Backend` directory.
