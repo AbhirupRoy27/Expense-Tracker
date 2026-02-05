@@ -10,13 +10,13 @@ function App() {
         </Routes>
       </div>
       <div className="py-6 px-2 sm:px-10 border-t border-white mt-6 bg-gray-50/20">
-        <h3 className="text-xl mb-3 font-mono font-semibold">
+        <h3 className="text-xl mb-3 font-mono font-semibold text-center">
           Expense Tracker
         </h3>
-        <div className="text-white">
+        {/* <div className="text-white">
           <span>+91 985125334</span>
-        </div>
-        <p className="text-white">
+        </div> */}
+        <p className="text-white text-center">
           Build by: Abhirup Roy <sup>(Software Developer Engineer)</sup>
         </p>
       </div>
