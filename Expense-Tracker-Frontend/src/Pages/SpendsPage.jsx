@@ -23,11 +23,11 @@ function SpendsPage() {
   return (
     <div className="py-3 min-w-88.5">
       <SpendLayout />
-      <div className="flex flex-col gap-2 mt-2 min-h-[60vh]">
+      <div className="flex flex-col gap-2 mt-2 min-h-[60vh] ">
         {data.map((item) => (
           <div
             key={item._id}
-            className="bg-white/10 px-4 flex justify-between items-center"
+            className="bg-white/10 px-4 flex justify-between items-center rounded-xl border-b border-white/30 scale-99 hover:scale-100 transition-all duration-100 ease-in-out"
           >
             <div className="py-3 w-4/5 overflow-scroll no-scrollbar">
               <p className="text-white/60 mb-1">
