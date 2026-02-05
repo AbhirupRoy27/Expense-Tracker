@@ -6,6 +6,7 @@ import PageChange from '../App/components/PageChange'
 
 function SpendsPage() {
   const { data } = useContext(transactionContext)
+
   if (data.length < 1)
     return (
       <div>
@@ -36,6 +37,7 @@ function SpendsPage() {
                 <b className="text-white/80 mr-1 text-lg">Message:</b>
                 {item.message.slice(0, 40) + '...' || '...'}
               </p>
+              <p className="mt-1">Date: {item.createdAt.split('T')[0]}</p>
             </div>
 
             <h1 className="py-3 text-xl">₹{item.amount}.00</h1>
